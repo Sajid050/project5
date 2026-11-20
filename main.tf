@@ -51,7 +51,7 @@ resource "aws_instance" "webserver" {
   vpc_security_group_ids = [aws_security_group.web_sg.id]
 
   user_data = file("userdata.sh")
-  
+
   tags = {
     Name = "sajid-tf-webserver-v2"
   }
