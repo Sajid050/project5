@@ -53,6 +53,6 @@ resource "aws_instance" "webserver" {
   user_data = file("userdata.sh")
   
   tags = {
-    Name = "sajid-tf-webserver-v2"
+    Name = "sajid-tf-webserver-v3"
   }
 }
