@@ -1,23 +1,17 @@
-name: Terraform Validation
+name: Project12
 
 on:
   push:
 
 jobs:
-  validate:
+  test:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
 
-      - uses: hashicorp/setup-terraform@v3
-
-      - run: terraform init
-
-      - run: terraform validate
-
-      - uses: actions/upload-artifact@v4
+      - name: Upload Files
+        uses: actions/upload-artifact@v4
         with:
           name: terraform-files
           path: .
-
