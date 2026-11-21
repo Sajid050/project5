@@ -1,10 +1,10 @@
-name: Terraform Plan
+name: Terraform Validation
 
 on:
   push:
 
 jobs:
-  terraform-plan:
+  validate:
     runs-on: ubuntu-latest
 
     steps:
@@ -12,14 +12,12 @@ jobs:
 
       - uses: hashicorp/setup-terraform@v3
 
-      - name: Terraform Init
-        run: terraform init
+      - run: terraform init
 
-      - name: Terraform Validate
-        run: terraform validate
+      - run: terraform validate
 
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
           name: terraform-files
           path: .
+
